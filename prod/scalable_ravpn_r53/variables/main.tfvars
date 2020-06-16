@@ -1,9 +1,10 @@
 #global 
-aws-region = "us-east-1"
+aws-region = "us-east-2"
 
 # SSH Key Variables
-ssh-key-name =  "aws-cloudedge" #To be filled out
-ssh-key =  "   " #To be filled out
+ssh-key-name =  "xxx"
+ssh-key =  "xxx"
+#To be filled out
 
 #VPC Parameters
 main-cidr = "10.0.0.0/8" #required for transit-gw (in case if there are multiple vpcs the main /8 subnet will be routed through TGW)
@@ -52,15 +53,15 @@ on-prem-pool = "192.168.128.0"#To be changed to your on-prem network
 on-prem-netmask = "255.255.255.0"#To be changed to your on-prem network
 
 #R53 Parameters
-dns-name = "example.com" #To be changed to your domain
-vpn-sub-domain = "vpn" #To be changed to your example sub-domain (example: vpn means it will be vpn.example.com)
-r53-health-check-port = "443" #ASAv Anyconnect service port
+dns-name = "crhill.ciscops.cloud"        # "example.com" To be changed to your domain
+vpn-sub-domain = "vpn"         # "vpn" To be changed to your example sub-domain (example: vpn means it will be vpn.example.com)
+r53-health-check-port = "443"  # ASAv Anyconnect service port
 
 #ASAv General Parameters
 ami-owner = "679593333241"
 asa-ami-id = "asav9-13-1-7-ENA-6836725a-4399-455a-bf58-01255e5213b8-ami-056e4d25f7577b998.4"
-asav-instance-size = "c5.xlarge"
-asa-license-throughput = "10G"
+asav-instance-size = "c5.xlarge"    # "c5.xlarge"
+asa-license-throughput = "10G"          # "10G"
 asa-unique-vpn-pools = true #It is required if you want to implement the "ghost pool" solution described in the reference architecture
 
 
@@ -99,7 +100,7 @@ asa-instances = {
         vpn-pool-from = "172.16.2.1"
         vpn-pool-to = "172.16.2.254"
         vpn-pool-mask = "255.255.255.0"
-        },
+        }/*,
         RAVPNASAv03={
         availability-zone = "b"
         template-file = "../3_asav_config/RAVPNASAv03.txt"
@@ -111,7 +112,6 @@ asa-instances = {
         vpn-pool-from = "172.16.3.1"
         vpn-pool-to = "172.16.3.254"
         vpn-pool-mask = "255.255.255.0"
-        }/*,
         RAVPNASAv04={
         availability-zone = "a"
         template-file = "../3_asav_config/RAVPNASAv04.txt"
