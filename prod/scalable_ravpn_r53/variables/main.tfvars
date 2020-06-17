@@ -2,8 +2,8 @@
 aws-region = "us-east-2"
 
 # SSH Key Variables
-ssh-key-name =  "xxx"
-ssh-key =  "xxx"
+ssh-key-name =  "aws-r53-vpn1"
+ssh-key =  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuNSSimTkwrkA9FlsVAWc2MFhQAtemgSQh1uL/gs8id5R4Ltk7O9mToRvnP/1r4MP6oJZjdymLX18F2sNaHdIqJ7NW21VZkdtb9DsnKTA5Wz0XMSUZZhzh7HLH8d08LISO1YrhM2UBWk8VutTvyAg3i7VZQAZIpaJjjly1foN1lHnBRsgC0YX+s5lGkpLXtNdwlWH9NCVBM2t4HdVa1Rz2V8dAi00hcUBtK2+mAa9V+oJQeWlYQOAJ2WzHakcZNrGZ0fNXSLmKYQxamjM2kq3FL7jWPCv6LGjws2KemOzU1WY2pvpH6VRAG9Quz4yenNiV/VE77bZ78L7UjQrVFTUVdtXdkrqO9LbURdxxg/SoxhhBNhv26bTsbtYR4ZqneKs7UhJwA1XryE+bpMUzQdaMrVnjSGt3pFNNAQiNbahSinVDmnpylSM6BPAqKri8fecokBYXLgUYzRTRARtwiAV9zFvQcrQaBV1TpQpgIvuWTyTLoa0K05PpYoWmYTOy2BM= crhill@CRHILL-M-JKBS"
 #To be filled out
 
 #VPC Parameters
@@ -53,7 +53,7 @@ on-prem-pool = "192.168.128.0"#To be changed to your on-prem network
 on-prem-netmask = "255.255.255.0"#To be changed to your on-prem network
 
 #R53 Parameters
-dns-name = "crhill.ciscops.cloud"        # "example.com" To be changed to your domain
+dns-name = "crhill-tf.ciscops.cloud"        # "example.com" To be changed to your domain
 vpn-sub-domain = "vpn"         # "vpn" To be changed to your example sub-domain (example: vpn means it will be vpn.example.com)
 r53-health-check-port = "443"  # ASAv Anyconnect service port
 
@@ -112,6 +112,7 @@ asa-instances = {
         vpn-pool-from = "172.16.3.1"
         vpn-pool-to = "172.16.3.254"
         vpn-pool-mask = "255.255.255.0"
+        },
         RAVPNASAv04={
         availability-zone = "a"
         template-file = "../3_asav_config/RAVPNASAv04.txt"
@@ -124,8 +125,8 @@ asa-instances = {
         vpn-pool-to = "172.16.4.254"
         vpn-pool-mask = "255.255.255.0"
         }*/
-        
 }
+
 
 
 #Workload general parameters

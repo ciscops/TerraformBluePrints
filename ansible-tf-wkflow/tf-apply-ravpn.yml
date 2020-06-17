@@ -57,6 +57,40 @@
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
     tags: apply-2_tgw_associations
 
+  - name: Terraform Plan - ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/3_asav_config'
+      state: planned
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+      force_init: yes
+    tags: plan-3_asav_config
+
+  - name: Terraform - Apply - ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/3_asav_config'
+      state: present
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+    tags: apply-3_asav_config
+
+  - name: Terraform Plan - Route 53 Front End
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/4_aws_r53_frontend'
+      state: planned
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+      force_init: yes
+    tags: plan-4_aws_r53_frontend
+
+  - name: Terraform - Apply - Route 53 Front End
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/4_aws_r53_frontend'
+      state: present
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+    tags: apply-4_aws_r53_frontend
+
   #- meta: refresh_inventory
   #  tags: always
         

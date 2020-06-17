@@ -6,6 +6,7 @@ provider "aws" {
 module "ASAv_Instances" {
 
 source = "../../../modules/cisco/asav_enhanced"
+#source = "~/coding/github.com/ciscops/TerraformBluePrints/modules/cisco/asav_enhanced"
 
 vpc_name = var.vpc1-name
 tgw_name = var.tgw-name

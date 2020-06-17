@@ -6,6 +6,40 @@
   gather_facts: no
   
   tasks:
+  - name: Terraform Plan - Route 53 Front End
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/4_aws_r53_frontend'
+      state: planned
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+      force_init: yes
+    tags: plan-4_aws_r53_frontend
+
+  - name: Terraform - DESTROY - Route 53 Front End
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/4_aws_r53_frontend'
+      state: absent
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+    tags: destroy-4_aws_r53_frontend
+  
+  - name: Terraform Plan - ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/3_asav_config'
+      state: planned
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+      force_init: yes
+    tags: plan-3_asav_config
+
+  - name: Terraform - DESTROY - ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/3_asav_config'
+      state: absent
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+    tags: destroy-3_asav_config
+  
   - name: Terraform Plan - TGW Associations
     terraform:
       project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/2_tgw_associations'
