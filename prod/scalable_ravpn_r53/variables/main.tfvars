@@ -2,8 +2,8 @@
 aws-region = "us-east-2"
 
 # SSH Key Variables
-ssh-key-name =  "aws-r53-vpn1"
-ssh-key =  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuNSSimTkwrkA9FlsVAWc2MFhQAtemgSQh1uL/gs8id5R4Ltk7O9mToRvnP/1r4MP6oJZjdymLX18F2sNaHdIqJ7NW21VZkdtb9DsnKTA5Wz0XMSUZZhzh7HLH8d08LISO1YrhM2UBWk8VutTvyAg3i7VZQAZIpaJjjly1foN1lHnBRsgC0YX+s5lGkpLXtNdwlWH9NCVBM2t4HdVa1Rz2V8dAi00hcUBtK2+mAa9V+oJQeWlYQOAJ2WzHakcZNrGZ0fNXSLmKYQxamjM2kq3FL7jWPCv6LGjws2KemOzU1WY2pvpH6VRAG9Quz4yenNiV/VE77bZ78L7UjQrVFTUVdtXdkrqO9LbURdxxg/SoxhhBNhv26bTsbtYR4ZqneKs7UhJwA1XryE+bpMUzQdaMrVnjSGt3pFNNAQiNbahSinVDmnpylSM6BPAqKri8fecokBYXLgUYzRTRARtwiAV9zFvQcrQaBV1TpQpgIvuWTyTLoa0K05PpYoWmYTOy2BM= crhill@CRHILL-M-JKBS"
+ssh-key-name =  "add... "
+ssh-key =  "add ..."
 #To be filled out
 
 #VPC Parameters
