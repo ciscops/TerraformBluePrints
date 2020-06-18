@@ -155,7 +155,7 @@ resource "aws_security_group" "SG-Allow-All-ASAv" {
 resource "aws_network_interface" "ASAv-Management" {
   for_each = {for asa_key, asa in var.asa_instances: asa_key => asa_key}
   subnet_id       = lookup(data.aws_subnet.subnet_mgmt, lookup(lookup(var.asa_instances, each.key),"availability-zone")).id
-  security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
+  #security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
   source_dest_check = false
   tags = {
     "Name" = "${each.key}-${var.subnet_mgmt_name[lookup(lookup(var.asa_instances, each.key),"availability-zone")]}"
@@ -164,7 +164,7 @@ resource "aws_network_interface" "ASAv-Management" {
 resource "aws_network_interface" "ASAv-Outside" {
   for_each = {for asa_key, asa in var.asa_instances: asa_key => asa_key}
   subnet_id       = lookup(data.aws_subnet.subnet_outside, lookup(lookup(var.asa_instances, each.key),"availability-zone")).id
-  security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
+  #security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
   source_dest_check = false
   tags = {
     "Name" = "${each.key}-${var.subnet_outside_name[lookup(lookup(var.asa_instances, each.key),"availability-zone")]}-Outside"
@@ -173,7 +173,7 @@ resource "aws_network_interface" "ASAv-Outside" {
 resource "aws_network_interface" "ASAv-Inside" {
   for_each = {for asa_key, asa in var.asa_instances: asa_key => asa_key}
   subnet_id       = lookup(data.aws_subnet.subnet_inside, lookup(lookup(var.asa_instances, each.key),"availability-zone")).id
-  security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
+  #security_groups = ["${lookup(aws_security_group.SG-Allow-All-ASAv, each.key).id}"]
   source_dest_check = false
   tags = {
     "Name" = "${each.key}-${var.subnet_inside_name[lookup(lookup(var.asa_instances, each.key),"availability-zone")]}-Inside"

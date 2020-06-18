@@ -20,7 +20,7 @@ asav_names = flatten([for asa_key, asa in var.asa-instances: [{
 data "template_file" "template" {
 for_each = {for asa_key, asa in var.asa-instances: asa_key => asa}
 
-template = "${file("asav_config_template.txt")}"
+template = "${file("asav_config_template_v2.txt")}"
   vars = {
   hostname = each.key
   idtoken = "${lookup(lookup(var.asa-instances, each.key),"token")}"

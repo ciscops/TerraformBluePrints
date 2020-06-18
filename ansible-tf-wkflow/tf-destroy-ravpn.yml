@@ -6,6 +6,23 @@
   gather_facts: no
   
   tasks:
+  - name: Terraform Plan - Destroy ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/5_asav_deployment'
+      state: planned
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+      force_init: yes
+    tags: destroy_plan-4_aws_r53_frontend
+
+  - name: Terraform - DESTROY - ASAv Configuration
+    terraform:
+      project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/5_asav_deployment'
+      state: absent
+      plan_file: 'terraform.tfplan'
+      variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
+    tags: destroy-5_asav_deployment
+  
   - name: Terraform Plan - Route 53 Front End
     terraform:
       project_path: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/4_aws_r53_frontend'
@@ -13,7 +30,7 @@
       plan_file: 'terraform.tfplan'
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
       force_init: yes
-    tags: plan-4_aws_r53_frontend
+    tags: destroy_plan-4_aws_r53_frontend
 
   - name: Terraform - DESTROY - Route 53 Front End
     terraform:
@@ -30,7 +47,7 @@
       plan_file: 'terraform.tfplan'
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
       force_init: yes
-    tags: plan-3_asav_config
+    tags: destroy_plan-3_asav_config
 
   - name: Terraform - DESTROY - ASAv Configuration
     terraform:
@@ -47,7 +64,7 @@
       plan_file: 'terraform.tfplan'
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
       force_init: yes
-    tags: plan-2_tgw_associations
+    tags: destroy_plan-2_tgw_associations
 
   - name: Terraform - DESTROY - TGW Associations
     terraform:
@@ -64,7 +81,7 @@
       plan_file: 'terraform.tfplan'
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
       force_init: yes
-    tags: plan-1-aws-network
+    tags: destroy_plan-1-aws-network
 
   - name: Terraform - Destroy VPC
     terraform:
@@ -81,7 +98,7 @@
       plan_file: 'terraform.tfplan'
       variables_file: '$HOME/coding/github.com/ciscops/TerraformBluePrints/prod/scalable_ravpn_r53/variables/main.tfvars'
       force_init: yes
-    tags: plan-0-ssh-key
+    tags: destroy_plan-0-ssh-key
 
   - name: Terraform - Destroy - AWS SSH Key
     terraform:
